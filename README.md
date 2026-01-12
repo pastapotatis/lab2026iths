@@ -7,8 +7,11 @@ Scriptet hämtar tre API:er i snabb följd genom POST i en uppsatt tailscale-mil
 <br><br>
 
 / = http://10.3.10.104:3000
+<br>
 /api/token - Create a short-lived token
+<br>
 /api/verify - Verify a token
+<br>
 /api/flag - Exchange verified token for a flag
 <br><br><br>
 
