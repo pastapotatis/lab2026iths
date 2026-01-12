@@ -28,7 +28,7 @@ Scriptet måste köras i snabb följd p.g.a. en tidsbegränsning för inhämtnin
 
         - nyckel:nyckelvärde
 
-        - Plain text
+        - plain text
 <br><br><br>
   
 
