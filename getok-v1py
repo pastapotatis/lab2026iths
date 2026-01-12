@@ -1,0 +1,44 @@
+import requests
+
+# Steg 1 - POST token via requests. Printar token.
+try:
+    req = requests.post("http://10.3.10.104:3000/api/token")
+    req.raise_for_status()
+    token = req.json()["token"]
+    print(f"Token is: {token}")
+
+except Exception as e:
+    raise Exception(e)
+
+
+# Steg 2 - POST Bearer token, ger 'secret'. Printar secret.
+headers = {
+    "Authorization": f"Bearer {token}",
+    "Custom-header": "secret"
+    }
+
+try:
+    url = f"http://10.3.10.104:3000/api/verify"
+    req.raise_for_status()
+    vrfy = requests.post(url, headers=headers, params={"token": token})
+    secr = vrfy.json()["secret"]
+    print(f"Token is verified and secret is: {secr}")
+
+except Exception as v:
+    raise Exception(v)
+
+
+# Steg 3 - POSTar token och secret, får tillbaka en flagga.
+body = {
+	"secret": secr
+	}
+
+try: 
+    flagurl = f"http://10.3.10.104:3000/api/flag"
+    vrfyflag = requests.post(flagurl, headers=headers, json=body, params={"token": token})
+    getflag = (vrfyflag.json())
+    cleanflag = getflag["flag"] # Hämtar value under key
+    print(f"Flaggan är: {cleanflag}") # Skriver ut "rena" flaggan
+
+except Exception as f:
+    raise Exception(f)
