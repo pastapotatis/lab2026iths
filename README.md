@@ -1,6 +1,5 @@
 **README.md**  
-
-  
+<br><br>
 I denna labb anropas ett API för att hämta en token, utföra ett token‑exchange och därefter få ut en flagga.
 
 Scriptet hämtar tre API:er i snabb följd genom POST i en uppsatt tailscale-miljö.
